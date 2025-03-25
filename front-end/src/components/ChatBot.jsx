@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { FaPaperPlane } from "react-icons/fa";
+import LogoutButton from "./LogoutButton";
 
 export default function ChatBot() {
   const [messages, setMessages] = useState([
@@ -66,6 +67,7 @@ export default function ChatBot() {
 
   return (
     <div className="max-w-lg mx-auto bg-gray-900 text-white p-5 rounded-lg shadow-lg">
+      <LogoutButton/>
       <h2 className="text-xl font-bold text-center">🏋️ GymBot</h2>
       
       <div className="mt-4 space-y-2">
