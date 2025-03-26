@@ -7,6 +7,7 @@ const ProtectedRoute = ({ adminOnly }) => {
     const [isAdmin, setIsAdmin] = useState(false);
 
     useEffect(() => {
+        // Verify the token with the backend using cookies
         axios.get('http://localhost:5000/api/auth/verify-token', { withCredentials: true })
             .then(response => {
                 setIsAuthenticated(true);
@@ -15,13 +16,13 @@ const ProtectedRoute = ({ adminOnly }) => {
             .catch(() => setIsAuthenticated(false));
     }, []);
 
-    if (isAuthenticated === null) return <div>Loading...</div>; // Show a loader
+    if (isAuthenticated === null) return <div>Loading...</div>; // Show a loader while checking authentication
 
-    if (!isAuthenticated) return <Navigate to="/login" />;
+    if (!isAuthenticated) return <Navigate to="/login" />; // Redirect to login if not authenticated
 
-    if (adminOnly && !isAdmin) return <Navigate to="/" />;
+    if (adminOnly && !isAdmin) return <Navigate to="/" />; // Redirect to home if user is not an admin
 
-    return <Outlet />;
+    return <Outlet />; // Render the protected route if authenticated
 };
 
 export default ProtectedRoute;
