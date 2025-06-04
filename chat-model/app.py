@@ -44,7 +44,7 @@ def predict():
         # Ensure correct column order
         df = df[feature_columns]
 
-        # Make prediction for all targets: Fitness Type, Exercises, and Diet
+        # Make prediction for all targets: Fitness Type, Exercises, and Diet 
         prediction = model.predict(df)
 
         # Decode the predictions (convert back to original category)
