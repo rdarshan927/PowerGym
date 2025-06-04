@@ -65,3 +65,5 @@ def predict():
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5001)
 
+
+# This code sets up a Flask application that serves a machine learning model for predicting fitness-related recommendations.
